@@ -3,25 +3,22 @@ package com.examples.junittesting;
 import java.util.Scanner;
 
 public class TempConversion {
-    public static void main(String arg[])
-    {
-        double f,c;
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Choose type of conversion \n 1.Fahrenheit to Celsius  \n 2.Celsius to Fahrenheit");
-        int ch=sc.nextInt();
-        switch(ch)
-        {
-            case 1:  System.out.println("Enter  Fahrenheit temperature");
-                f=sc.nextDouble();
-                c=(f-32)*5/9;
-                System.out.println("Celsius temperature is = "+c);
-                break;
-            case 2:  System.out.println("Enter  Celsius temperature");
-                c=sc.nextDouble();
-                f=((9*c)/5)+32;
-                System.out.println("Fahrenheit temperature is = "+f);
-                break;
-            default:  System.out.println("please choose valid choice");
+    static void temperatureConversion(double temp,int ch) {
+        if (ch == 1) {
+            double f=temp*9/5+32;
+            System.out.println("Temperature in Fahrenheit : "+f+" F");
         }
+        if (ch == 2) {
+            double c=(temp-32)*5/9;
+            System.out.println("Temperature in Celsius : "+c+" C");
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Choose type of conversion \n 1. Celsius to Fahrenheit  \n 2. Fahrenheit to Celsius");
+        int ch=scan.nextInt();
+        System.out.println("Enter Temperature :");
+        double temp=scan.nextDouble();
+        temperatureConversion(temp, ch);
     }
 }
